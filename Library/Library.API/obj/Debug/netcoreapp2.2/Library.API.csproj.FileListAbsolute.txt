@@ -17,3 +17,22 @@ C:\Users\BRUNO\Documents\dev\Labs\Teste - timeshare\Library\Library.API\obj\Debu
 C:\Users\BRUNO\Documents\dev\Labs\Teste - timeshare\Library\Library.API\bin\Debug\netcoreapp2.2\Library.API.pdb
 C:\Users\BRUNO\Documents\dev\Labs\Teste - timeshare\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.dll
 C:\Users\BRUNO\Documents\dev\Labs\Teste - timeshare\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.pdb
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\bin\Debug\netcoreapp2.2\Library.API.deps.json
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\bin\Debug\netcoreapp2.2\Library.API.runtimeconfig.json
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\bin\Debug\netcoreapp2.2\Library.API.runtimeconfig.dev.json
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\bin\Debug\netcoreapp2.2\Library.API.dll
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\bin\Debug\netcoreapp2.2\Library.API.pdb
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.csprojAssemblyReference.cache
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.Resources.DomainError.resources
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.Resources.ValidationDomain.resources
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.csproj.GenerateResource.cache
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.RazorAssemblyInfo.cache
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.RazorAssemblyInfo.cs
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.AssemblyInfoInputs.cache
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.AssemblyInfo.cs
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.RazorTargetAssemblyInfo.cache
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.dll
+C:\Users\BRUNO\Documents\dev\Labs\LibraryManager\Library\Library.API\obj\Debug\netcoreapp2.2\Library.API.pdb

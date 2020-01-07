@@ -8,6 +8,7 @@ namespace Library.API.Business.Interfaces
 {
     public interface ILoanService
     {
+        Task<Loan> GetIdCompleteAsync(Guid id);
         Task AddAsync(Loan loan);
         Task UpdateAsync(Loan loan);
         Task UpdateStatusAsync(Loan loan);

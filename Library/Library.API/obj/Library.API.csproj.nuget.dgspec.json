@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\Teste - timeshare\\Library\\Library.API\\Library.API.csproj": {}
+    "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\LibraryManager\\Library\\Library.API\\Library.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\Teste - timeshare\\Library\\Library.API\\Library.API.csproj": {
+    "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\LibraryManager\\Library\\Library.API\\Library.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\Teste - timeshare\\Library\\Library.API\\Library.API.csproj",
+        "projectUniqueName": "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\LibraryManager\\Library\\Library.API\\Library.API.csproj",
         "projectName": "Library.API",
-        "projectPath": "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\Teste - timeshare\\Library\\Library.API\\Library.API.csproj",
+        "projectPath": "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\LibraryManager\\Library\\Library.API\\Library.API.csproj",
         "packagesPath": "C:\\Users\\BRUNO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\Teste - timeshare\\Library\\Library.API\\obj\\",
+        "outputPath": "C:\\Users\\BRUNO\\Documents\\dev\\Labs\\LibraryManager\\Library\\Library.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

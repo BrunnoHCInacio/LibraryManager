@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MessageErrorDateNotValid" xml:space="preserve">
+    <value>A data prevista para o returno não pode ser anterior a data atual</value>
+  </data>
   <data name="MessageErrorHasExistPeopleWithDocument" xml:space="preserve">
     <value>Já existe um cadastro com este CPF</value>
   </data>

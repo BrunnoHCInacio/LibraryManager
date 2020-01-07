@@ -51,9 +51,7 @@ namespace Library.API.Controllers
         [HttpGet("{id:guid}")]
         public async Task<LoanViewModel> GetLoanById(Guid id)
         {
-            var loan = _mapper.Map<LoanViewModel>(await _loanRepository.GetLoanPeopleByIdAsync(id));
-            loan.LoanBooks = _mapper.Map<IEnumerable<LoanBookViewModel>>(await _loanBookRespository.GetLoanBooksByLoanId(id));
-            return loan;
+            return _mapper.Map<LoanViewModel>(await _loanService.GetIdCompleteAsync(id));
         }
 
         [HttpPost()]
@@ -75,6 +73,7 @@ namespace Library.API.Controllers
                 return CustomResponse();
             }
             if (!ModelState.IsValid) return CustomResponse(ModelState);
+
             await _loanService.UpdateAsync(_mapper.Map<Loan>(loanViewModel));
             return CustomResponse(loanViewModel);
         }
@@ -111,20 +110,19 @@ namespace Library.API.Controllers
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult> Remove(Guid id)
         {
-            var loan = await _loanRepository.GetByIdAsync(id);
+            var loan = await _loanService.GetIdCompleteAsync(id);
             if (loan == null) return NotFound();
             if (await _loanService.HasPendingReturns(loan)) return CustomResponse();
-
-            var loanBooks = await _loanBookRespository.GetLoanBooksByLoanId(loan.Id);
-            if (loanBooks.Any())
+            await _loanService.RemoveAsync(loan);
+            if (loan.LoanBooks.Any())
             {
-                foreach (var loanBook in loanBooks)
+                foreach (var loanBook in loan.LoanBooks)
                 {
                     await _loanBookService.RemoveAsync(loanBook);
                 }
             }
 
-            await _loanService.RemoveAsync(loan);
+            
             return CustomResponse();
         }
     }

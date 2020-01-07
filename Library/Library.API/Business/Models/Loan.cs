@@ -7,6 +7,10 @@ namespace Library.API.Business.Models
 {
     public class Loan : Entity
     {
+        public Loan()
+        {
+            LoanBooks = new List<LoanBook>();
+        }
         public Guid PeopleId { get; set; }
         public string StatusLoan { get; set; }
         public IEnumerable<LoanBook> LoanBooks { get; set; }

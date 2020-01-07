@@ -61,6 +61,15 @@ namespace Library.API.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A data prevista para o returno não pode ser anterior a data atual.
+        /// </summary>
+        public static string MessageErrorDateNotValid {
+            get {
+                return ResourceManager.GetString("MessageErrorDateNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Já existe um cadastro com este CPF.
         /// </summary>
         public static string MessageErrorHasExistPeopleWithDocument {

@@ -26,9 +26,17 @@ namespace Library.API.Business.Services
             _loanBookService = loanBookService;
         }
 
+        public async Task<Loan> GetIdCompleteAsync(Guid id)
+        {
+            var loan = await _loanRepository.GetLoanPeopleByIdAsync(id);
+            loan.LoanBooks = await _loanBookRepository.GetLoanBooksByLoanId(id);
+            return loan;
+        }
+
         public async Task AddAsync(Loan loan)
         {
             if (await HasPendingReturnsByPeople(loan)) return;
+            if (!DateExtepectedIsVaid(loan)) return;
 
             loan.StatusLoan = DomainParameters.Borrowed;
             await _loanRepository.AddAsync(loan);
@@ -45,7 +53,8 @@ namespace Library.API.Business.Services
 
         public async Task UpdateAsync(Loan loan)
         {
-           await _loanRepository.UpdateAsync(loan);
+            if (!DateExtepectedIsVaid(loan)) return;
+            await _loanRepository.UpdateAsync(loan);
         }
 
         public async Task UpdateStatusAsync(Loan loan)
@@ -66,7 +75,6 @@ namespace Library.API.Business.Services
 
         public async Task RemoveAsync(Loan loan)
         {
-            if (await HasPendingReturns(loan)) return;
             loan.IsDeleted = true;
             await _loanRepository.UpdateAsync(loan);
         }
@@ -75,7 +83,7 @@ namespace Library.API.Business.Services
         {
             foreach (var loanBook in loan.LoanBooks)
             {
-                _loanBookService.ReturnBookAsync(loanBook); 
+               await _loanBookService.ReturnBookAsync(loanBook); 
             }
             await UpdateStatusAsync(loan);
             
@@ -85,7 +93,7 @@ namespace Library.API.Business.Services
         {
             foreach (var loanBook in loan.LoanBooks)
             {
-                var loanBooks = await _loanBookRepository.GetLoanBooksNotReturnedByBookId(loanBook.BookId);
+                var loanBooks = await _loanBookRepository.GetLoanBooksNotReturnedByBookAndLoanId(loanBook.BookId, loan.Id);
                 if (loanBooks.Any())
                 {
                     Notify(DomainError.MessageErrorNotRemoveLoan);
@@ -99,15 +107,16 @@ namespace Library.API.Business.Services
         {
             foreach (var loanBook in loan.LoanBooks)
             {
-                var loanBooks = await _loanBookRepository.GetLoanBooksByBookId(loanBook.BookId);
+                var loanBooksNotReturneds = await _loanBookRepository.GetLoanBooksNotReturnedByBookId(loanBook.BookId);
 
-                if (loanBooks.Any())
+                if (loanBooksNotReturneds.Any())
                 {
-                    foreach (var obj in loanBooks)
+                    foreach (var notReturned in loanBooksNotReturneds)
                     {
-                        if (_loanRepository.GetLoanPeopleByIdAsync(obj.LoanId).Result.PeopleId == loan.PeopleId)
+                        var lb = await _loanRepository.GetLoanPeopleByIdAsync(notReturned.LoanId);
+                        if (lb.PeopleId == loan.PeopleId)
                         {
-                            var book = await _bookRepository.GetByIdAsync(obj.BookId);
+                            var book = await _bookRepository.GetByIdAsync(notReturned.BookId);
                             Notify("Este livro " + book.Title + " já consta em um emprestimo pendente");
                             return true;
                         }
@@ -117,6 +126,17 @@ namespace Library.API.Business.Services
             return false;
         }
 
-        
+        private bool DateExtepectedIsVaid(Loan loan)
+        {
+            foreach (var loanBook in loan.LoanBooks)
+            {
+                if (loanBook.ExpectedDateReturn < DateTime.Now)
+                {
+                    Notify(DomainError.MessageErrorDateNotValid);
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

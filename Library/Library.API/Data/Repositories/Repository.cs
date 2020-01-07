@@ -33,12 +33,12 @@ namespace Library.API.Data.Repositories
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await DbSet.Where(e=>e.IsDeleted == false).ToListAsync();
+            return await DbSet.AsNoTracking().Where(e=>e.IsDeleted == false).ToListAsync();
         }
 
         public async Task<TEntity> GetByIdAsync(Guid id)
         {
-            return await DbSet.FirstOrDefaultAsync(e => e.Id == id && e.IsDeleted == false);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id && e.IsDeleted == false);
         }
 
         public async Task<int> SaveChangesAsync()
@@ -48,7 +48,7 @@ namespace Library.API.Data.Repositories
 
         public async Task<IEnumerable<TEntity>> SearchAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            return await DbSet.Where(predicate).ToListAsync();
+            return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
         }
       
         public void Dispose()

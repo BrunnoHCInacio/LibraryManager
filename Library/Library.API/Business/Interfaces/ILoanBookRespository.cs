@@ -12,7 +12,6 @@ namespace Library.API.Business.Interfaces
         Task<IEnumerable<LoanBook>> GetLoanBooks();
         Task<IEnumerable<LoanBook>> GetLoanBooksNotReturned();
         Task<IEnumerable<LoanBook>> GetLoanBooksNotReturnedByBookId(Guid bookId);
-
-
+        Task<IEnumerable<LoanBook>> GetLoanBooksNotReturnedByBookAndLoanId(Guid bookId, Guid loanId);
     }
 }

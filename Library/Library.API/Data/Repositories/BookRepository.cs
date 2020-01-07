@@ -15,6 +15,7 @@ namespace Library.API.Data.Repositories
         public async Task<Book> GetBookLoansByIdAsync(Guid bookId)
         {
             return await Db.Books
+                .AsNoTracking()
                 .FirstOrDefaultAsync(b => b.Id == bookId && !b.IsDeleted);
         }
 

@@ -63,5 +63,18 @@ namespace Library.API.Data.Repositories
                     && !lb.IsReturned)
              .ToListAsync();
         }
+
+        public async Task<IEnumerable<LoanBook>> GetLoanBooksNotReturnedByBookAndLoanId(Guid bookId, Guid loanId)
+        {
+            return await Db.LoanBooks
+             .AsNoTracking()
+             .Include(lb => lb.Book)
+             .Include(lb => lb.Loan)
+             .Where(lb => !lb.IsDeleted
+                    && lb.LoanId == loanId
+                    && lb.BookId == bookId
+                    && !lb.IsReturned)
+             .ToListAsync();
+        }
     }
 }

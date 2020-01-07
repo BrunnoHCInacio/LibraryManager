@@ -27,7 +27,7 @@ namespace Library.API.Data.Repositories
             return await Db.Loans
                  .AsNoTracking()
                 .Include(l => l.People)
-                .Where(l => !l.IsDeleted)
+                .Where(l => !l.IsDeleted) 
                 .ToListAsync();
         }
 
